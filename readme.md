@@ -60,9 +60,9 @@ svgToSss({
 ```
 result css:
 ```css
-.'ololo-filename-trololo,
-.'ololo-filename-trololo-before:before,
-.'ololo-filename-trololo-after:after{
+.ololo-filename-trololo,
+.ololo-filename-trololo-before:before,
+.ololo-filename-trololo-after:after{
 	background-image:url('data:image/svg+xml,data...')
 }
 ```
