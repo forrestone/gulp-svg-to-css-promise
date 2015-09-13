@@ -91,13 +91,13 @@ svgToSss({
 BONUS livereload svg after change
 ===
 
-- 1) download chrome extension https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
-- 2) open your site
-- 3) run gulp
-- 4) enable Livereload extension
-- 5) try change svg files
-- ???
-- PROFIT =)
+* 1) Download chrome extension https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
+* 2) Open your site in chrome
+* 3) Run gulp default task
+* 4) Enable Livereload extension
+* 5) Try change svg files
+* ???
+* PROFIT
 
 ```javascript
 var svgToSss = require('gulp-svg-to-css');
