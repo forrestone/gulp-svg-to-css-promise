@@ -27,13 +27,13 @@ generated css:
 .svg-filename,
 .svg-filename-before:before,
 .svg-filename-after:after{
-	background-image:url('data:image/svg+xml,data')
+	background-image:url('data:image/svg+xml,data...')
 }
 
 .svg-filename2,
 .svg-filename2-before:before,
 .svg-filename2-after:after{
-	background-image:url('data:image/svg+xml,data')
+	background-image:url('data:image/svg+xml,data...')
 }
 ```
 
@@ -63,7 +63,7 @@ result css:
 .'ololo-filename-trololo,
 .'ololo-filename-trololo-before:before,
 .'ololo-filename-trololo-after:after{
-	background-image:url('data:image/svg+xml,data')
+	background-image:url('data:image/svg+xml,data...')
 }
 ```
 
