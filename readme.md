@@ -1,6 +1,6 @@
 gulp-svg-to-css
 ===
-Plugin for gulp
+Plugin for gulp: Packs svg files in css sprite inline
 
 
 
