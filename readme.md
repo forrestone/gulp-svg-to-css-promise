@@ -118,5 +118,4 @@ gulp.task('watch', function(){
 
 
 gulp.task('default', ['svg', 'watch']);
-
 ```
