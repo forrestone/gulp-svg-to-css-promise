@@ -83,6 +83,6 @@ default template:
 custom template:
 ```javascript
 svgToSss({
-	template: "...custom mustache template..."
+	template: "...custom mustache template text..."
 })
 ```
