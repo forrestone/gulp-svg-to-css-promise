@@ -1,0 +1,36 @@
+{
+  "name": "gulp-svg-to-css",
+  "version": "1.0.0",
+  "description": "Packs svg files in css sprite inline",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxmaxmaximus/gulp-svg-to-css.git"
+  },
+  "keywords": [
+    "gulp",
+    "svg",
+    "css",
+    "sprite",
+    "inline",
+    "base64"
+  ],
+  "dependencies": {
+    "fs": "*",
+    "through2": "*",
+    "gulp-util": "*",
+    "vinyl": "*",
+    "svgo": "*",
+    "path": "*",
+    "mustache": ""
+  },
+  "author": "Иван Вольнов <imaxmaxmaximus@gmail.com> (http://uijs.ru)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Maxmaxmaximus/gulp-svg-to-css/issues"
+  },
+  "homepage": "https://github.com/Maxmaxmaximus/gulp-svg-to-css"
+}
