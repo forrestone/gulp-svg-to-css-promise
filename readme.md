@@ -87,6 +87,25 @@ svgToSss({
 })
 ```
 
+Use with css preprocessors:
+---
+```javascript
+svgToSss({
+	name: 'vars.styl',
+	template:
+	"{{#items}}" +
+	"{{filename}} = '{{dataurl}}'" +
+	"{{/items}}"
+})
+.pipe(stylus())
+```
+result vars.styl:
+```styl
+filename1 = 'data:image/svg+xml,data...'
+filename2 = 'data:image/svg+xml,data...'
+filename3 = 'data:image/svg+xml,data...'
+```
+
 
 BONUS livereload svg after change
 ===
