@@ -10,9 +10,7 @@ svgo = new SVGO
 
 
 module.exports = (opts = {}) ->
-	if typeof opts is 'string'
-		opts = {name: opts}
-
+	opts = {name: opts} if typeof opts is 'string'
 	opts.template ?= fs.readFileSync(__dirname + '/template.mustache', 'utf8')
 	opts.name ?= 'svg.css'
 	opts.prefix ?= 'svg-'
