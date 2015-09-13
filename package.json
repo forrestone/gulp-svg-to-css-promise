@@ -1,6 +1,6 @@
 {
   "name": "gulp-svg-to-css",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Packs svg files in css sprite inline",
   "main": "index.js",
   "scripts": {
