@@ -19,12 +19,10 @@
     "base64"
   ],
   "dependencies": {
-    "fs": "*",
     "through2": "*",
     "gulp-util": "*",
     "vinyl": "*",
     "svgo": "*",
-    "path": "*",
     "mustache": ""
   },
   "author": "Иван Вольнов <imaxmaxmaximus@gmail.com> (http://uijs.ru)",
