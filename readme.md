@@ -86,3 +86,37 @@ svgToSss({
 	template: "...custom mustache template code..."
 })
 ```
+
+
+BONUS livereload svg after change
+===
+
+1) download chrome extension https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
+2) open your site
+3) run gulp
+4) enable Livereload extension
+5) try change svg files
+???
+PROFIT =)
+
+```javascript
+var svgToSss = require('gulp-svg-to-css');
+var livereload = require('gulp-livereload');
+var watch = require('gulp-watch');
+
+gulp.task('svg', function(){
+	return gulp.src('**/*.svg')
+	.pipe(svgToSss('svg.css'))
+	.pipe(gulp.dest('build/'))
+	.pipe(livereload());
+});
+
+gulp.task('watch', function(){
+	livereload.listen();
+	watch('**/*.svg', function(){ gulp.start('svg') }
+});
+
+
+gulp.task('default', ['svg', 'watch']);
+
+```
