@@ -113,7 +113,7 @@ gulp.task('svg', function(){
 
 gulp.task('watch', function(){
 	livereload.listen();
-	watch('**/*.svg', function(){ gulp.start('svg') })
+	watch('**/*.svg', function(){ gulp.start('svg') });
 });
 
 
