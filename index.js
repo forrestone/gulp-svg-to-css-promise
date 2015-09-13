@@ -1,17 +1,16 @@
 var through2 = require('through2');
 var gutil = require('gulp-util');
 var Vinyl = require('vinyl');
-var SVGO = require('svgo');
 var path = require('path');
 var fs = require('fs');
+
 var Mustache = require('mustache');
+var SVGO = require('svgo');
 var svgo = new SVGO;
 
 const DEFAULT_NAME = 'svg.css';
 const DEFAULT_PREFIX = 'svg-';
 const DEFAULT_POSTFIX = '';
-
-// Packs svg files in css sprite inline
 
 
 module.exports = function (opts) {
@@ -64,8 +63,8 @@ module.exports = function (opts) {
 				parsedData.items.push({
 					dataurl: dataUrl,
 					filename: fileName,
-					svgcode: svgCode,
-				})
+					svgcode: svgCode
+				});
 
 				callback();
 			});
@@ -90,5 +89,5 @@ module.exports = function (opts) {
 
 
 	return through2.obj(eachFile, endStream);
-}
+};
 
