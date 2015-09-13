@@ -110,13 +110,13 @@ filename3 = 'data:image/svg+xml,data...'
 BONUS livereload svg after change
 ===
 
-* 1) Download chrome extension https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
-* 2) Open your site in chrome
-* 3) Run gulp default task
-* 4) Enable Livereload extension
-* 5) Try change svg files
-* ???
-* PROFIT
+- Download chrome extension https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
+- Open your site in chrome
+- Run gulp default task
+- Enable Livereload extension
+- Try change svg files
+- ???
+- PROFIT
 
 ```javascript
 var svgToSss = require('gulp-svg-to-css');
