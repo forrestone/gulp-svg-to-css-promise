@@ -17,10 +17,9 @@ Usage:
 ```javascript
 var svgToSss = require('gulp-svg-to-css');
 
-
-gulp.src('src/**/*.svg')
+gulp.src('**/*.svg')
 .pipe(svgToSss('svg.css'))
-.pipe(gulp.dest('public_html/'));
+.pipe(gulp.dest('build/'));
 ```
 
 generated css:
@@ -38,3 +37,52 @@ generated css:
 }
 ```
 
+in html
+```html
+<div class='svg-filename'>
+as background-image for element
+</div>
+
+<div class='svg-filename-before'>
+as background-image for :before pseudo-element
+</div>
+```
+
+Options:
+---
+
+```javascript
+svgToSss({
+	name:'svg.css', // default 'svg.css'
+	prefix: 'ololo-', //  default 'svg-'
+	postfix: '-trololo', //  default ''
+})
+```
+result css:
+```css
+.'ololo-filename-trololo,
+.'ololo-filename-trololo-before:before,
+.'ololo-filename-trololo-after:after{
+	background-image:url('data:image/svg+xml,data')
+}
+```
+
+Custom template css:
+---
+This plugin use mustache template engine 
+
+default template:
+```mustache
+{{#items}}
+    .{{prefix}}{{filename}}{{postfix}},
+    .{{prefix}}{{filename}}{{postfix}}-before:before,
+    .{{prefix}}{{filename}}{{postfix}}-after:after{background-image:url('{{{dataurl}}}')}
+{{/items}}
+```
+
+custom template:
+```javascript
+svgToSss({
+	template: "...custom mustache template..."
+})
+```

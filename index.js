@@ -40,7 +40,7 @@ module.exports = function (opts) {
 	var parsedData = {
 		items: [],
 		prefix: opts.prefix,
-		postfix: opts.postfix,
+		postfix: opts.postfix
 	};
 
 
