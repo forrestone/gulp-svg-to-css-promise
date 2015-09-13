@@ -116,6 +116,5 @@ gulp.task('watch', function(){
 	watch('**/*.svg', function(){ gulp.start('svg') });
 });
 
-
 gulp.task('default', ['svg', 'watch']);
 ```
