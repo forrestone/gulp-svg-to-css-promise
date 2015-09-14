@@ -67,7 +67,7 @@ result css:
 }
 ```
 
-Custom template css:
+Custom template:
 ---
 This plugin use mustache template engine 
 
