@@ -73,11 +73,9 @@ This plugin use mustache template engine
 
 default template:
 ```mustache
-{{#items}}
-    .{{prefix}}{{filename}}{{postfix}},
-    .{{prefix}}{{filename}}{{postfix}}-before:before,
-    .{{prefix}}{{filename}}{{postfix}}-after:after{background-image:url('{{{dataurl}}}')}
-{{/items}}
+.{{prefix}}{{filename}}{{postfix}},
+.{{prefix}}{{filename}}{{postfix}}-before:before,
+.{{prefix}}{{filename}}{{postfix}}-after:after{background-image:url('{{{dataurl}}}')}
 ```
 
 custom template:
@@ -92,10 +90,7 @@ Use with css preprocessors:
 ```javascript
 svgToSss({
 	name: 'vars.styl',
-	template:
-	"{{#items}}" +
-	"{{filename}} = '{{dataurl}}'" +
-	"{{/items}}"
+	template: "{{filename}} = '{{dataurl}}'"
 })
 .pipe(stylus())
 ```
