@@ -9,17 +9,24 @@ SVGO = require('svgo')
 svgo = new SVGO
 
 
+createTemplate = (template)->
+	template = "{{#items}}#{template}\r\n{{/items}}"
+	return template
+
+
+
 module.exports = (opts = {}) ->
 	opts = {name: opts} if typeof opts is 'string'
-	opts.template ?= fs.readFileSync(__dirname + '/template.mustache', 'utf8')
 	opts.name ?= 'svg.css'
 	opts.prefix ?= 'svg-'
 	opts.postfix ?= ''
+	opts.template ?= fs.readFileSync(__dirname + '/template.mustache', 'utf8')
 
 	parsedData =
 		items: []
 		prefix: opts.prefix
 		postfix: opts.postfix
+
 
 
 	eachFile = (file, enc, callback) ->
@@ -35,6 +42,7 @@ module.exports = (opts = {}) ->
 
 		svgCode = file.contents.toString('utf8')
 		fileName = path.parse(file.path).name
+
 		svgo.optimize svgCode, (result) ->
 			parsedData.items.push
 				dataurl: 'data:image/svg+xml,' + encodeURIComponent(result.data)
@@ -42,12 +50,16 @@ module.exports = (opts = {}) ->
 			callback()
 
 
+
 	endStream = (callback) ->
-		cssCode = Mustache.render(opts.template, parsedData)
+		template = createTemplate(opts.template)
+		cssCode = Mustache.render(template, parsedData)
 		buffer = new Buffer(cssCode, 'utf8')
+
 		@push new Vinyl
 			path: opts.name
 			contents: buffer
+
 		callback()
 
 

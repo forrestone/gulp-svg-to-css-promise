@@ -1,4 +1,4 @@
-var Mustache, SVGO, Vinyl, fs, gutil, path, svgo, through2;
+var Mustache, SVGO, Vinyl, createTemplate, fs, gutil, path, svgo, through2;
 
 through2 = require('through2');
 
@@ -16,6 +16,11 @@ SVGO = require('svgo');
 
 svgo = new SVGO;
 
+createTemplate = function(template) {
+  template = "{{#items}}" + template + "\r\n{{/items}}";
+  return template;
+};
+
 module.exports = function(opts) {
   var eachFile, endStream, parsedData;
   if (opts == null) {
@@ -26,9 +31,6 @@ module.exports = function(opts) {
       name: opts
     };
   }
-  if (opts.template == null) {
-    opts.template = fs.readFileSync(__dirname + '/template.mustache', 'utf8');
-  }
   if (opts.name == null) {
     opts.name = 'svg.css';
   }
@@ -37,6 +39,9 @@ module.exports = function(opts) {
   }
   if (opts.postfix == null) {
     opts.postfix = '';
+  }
+  if (opts.template == null) {
+    opts.template = fs.readFileSync(__dirname + '/template.mustache', 'utf8');
   }
   parsedData = {
     items: [],
@@ -66,8 +71,9 @@ module.exports = function(opts) {
     });
   };
   endStream = function(callback) {
-    var buffer, cssCode;
-    cssCode = Mustache.render(opts.template, parsedData);
+    var buffer, cssCode, template;
+    template = createTemplate(opts.template);
+    cssCode = Mustache.render(template, parsedData);
     buffer = new Buffer(cssCode, 'utf8');
     this.push(new Vinyl({
       path: opts.name,
