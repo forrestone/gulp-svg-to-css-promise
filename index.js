@@ -1,4 +1,4 @@
-var Mustache, SVGO, Vinyl, createTemplate, fs, gutil, path, svgo, through2;
+var Mustache, SVGO, Vinyl, fs, gutil, path, svgo, through2;
 
 through2 = require('through2');
 
@@ -15,11 +15,6 @@ Mustache = require('mustache');
 SVGO = require('svgo');
 
 svgo = new SVGO;
-
-createTemplate = function(template) {
-  template = "{{#items}}" + template + "\r\n{{/items}}";
-  return template;
-};
 
 module.exports = function(opts) {
   var eachFile, endStream, parsedData;
@@ -72,7 +67,7 @@ module.exports = function(opts) {
   };
   endStream = function(callback) {
     var buffer, cssCode, template;
-    template = createTemplate(opts.template);
+    template = "{{#items}}" + opts.template + "\r\n{{/items}}";
     cssCode = Mustache.render(template, parsedData);
     buffer = new Buffer(cssCode, 'utf8');
     this.push(new Vinyl({

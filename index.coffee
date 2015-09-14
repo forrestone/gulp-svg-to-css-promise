@@ -9,11 +9,6 @@ SVGO = require('svgo')
 svgo = new SVGO
 
 
-createTemplate = (template)->
-	template = "{{#items}}#{template}\r\n{{/items}}"
-	return template
-
-
 
 module.exports = (opts = {}) ->
 	opts = {name: opts} if typeof opts is 'string'
@@ -52,7 +47,7 @@ module.exports = (opts = {}) ->
 
 
 	endStream = (callback) ->
-		template = createTemplate(opts.template)
+		template = "{{#items}}#{opts.template}\r\n{{/items}}"
 		cssCode = Mustache.render(template, parsedData)
 		buffer = new Buffer(cssCode, 'utf8')
 
