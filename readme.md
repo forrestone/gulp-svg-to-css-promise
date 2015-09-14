@@ -81,7 +81,7 @@ default template:
 custom template:
 ```javascript
 svgToSss({
-	template: "...custom mustache template code..."
+	template: "{{filename}} {{dataurl}} {{data}} {{prefix}} {{postfix}}"
 })
 ```
 

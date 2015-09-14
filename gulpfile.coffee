@@ -11,7 +11,9 @@ gulp.task 'build', ->
 
 gulp.task 'test', ['build'], ->
 	gulp.src 'test/svg/**/*.svg'
-	.pipe do svgToCss
+	.pipe svgToCss
+		name: 'svg-vars.styl'
+		template: "svg-{{filename}} = '{{dataurl}}'"
 	.pipe gulp.dest 'test/'
 
 
@@ -24,6 +26,4 @@ gulp.task 'default', [
 	'test',
 	'watch'
 ]
-
-
 
