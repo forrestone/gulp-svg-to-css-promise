@@ -57,12 +57,14 @@ module.exports = function(opts) {
     }
     svgCode = file.contents.toString('utf8');
     fileName = path.parse(file.path).name;
-    return svgo.optimize(svgCode, function(result) {
+    return svgo.optimize(svgCode).then(function(result) {
       parsedData.items.push({
-        dataurl: 'data:image/svg+xml,' + encodeURIComponent(result.data),
+        dataurl: 'data:image/svg+sxml,' + encodeURIComponent(result.data),
         filename: fileName
       });
       return callback();
+    }, function(error) {
+      return console.log(error);
     });
   };
   endStream = function(callback) {

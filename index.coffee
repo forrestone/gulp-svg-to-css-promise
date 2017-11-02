@@ -38,12 +38,12 @@ module.exports = (opts = {}) ->
 		svgCode = file.contents.toString('utf8')
 		fileName = path.parse(file.path).name
 
-		svgo.optimize svgCode, (result) ->
+		svgo.optimize(svgCode).then (result) ->
 			parsedData.items.push
-				dataurl: 'data:image/svg+xml,' + encodeURIComponent(result.data)
+				dataurl: 'data:image/svg+sxml,' + encodeURIComponent(result.data)
 				filename: fileName
 			callback()
-
+		, (error) -> console.log(error)
 
 
 	endStream = (callback) ->
