@@ -59,7 +59,7 @@ module.exports = function(opts) {
     fileName = path.parse(file.path).name;
     return svgo.optimize(svgCode).then(function(result) {
       parsedData.items.push({
-        dataurl: 'data:image/svg+sxml,' + encodeURIComponent(result.data),
+        dataurl: 'data:image/svg+xml,' + encodeURIComponent(result.data),
         filename: fileName
       });
       return callback();
