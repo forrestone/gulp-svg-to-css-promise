@@ -40,7 +40,7 @@ module.exports = (opts = {}) ->
 
 		svgo.optimize(svgCode).then (result) ->
 			parsedData.items.push
-				dataurl: 'data:image/svg+sxml,' + encodeURIComponent(result.data)
+				dataurl: 'data:image/svg+xml,' + encodeURIComponent(result.data)
 				filename: fileName
 			callback()
 		, (error) -> console.log(error)
